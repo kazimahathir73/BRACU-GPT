@@ -1,5 +1,7 @@
 django
 django-cors-headers
 djangorestframework
-django-rest-framework-mongoengine
-marshmallow
+transformers
+datasets
+torch
+sentence-transformers

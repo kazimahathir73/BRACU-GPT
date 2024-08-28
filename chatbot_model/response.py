@@ -1,19 +1,16 @@
-from transformers import T5ForConditionalGeneration, T5Tokenizer
+import pandas as pd
+from sentence_transformers import SentenceTransformer, util
 
-model = T5ForConditionalGeneration.from_pretrained('path')
-tokenizer = T5Tokenizer.from_pretrained('path')
+model_path = 'E:/BRACU-GPT/chatbot_model/weights'
+model = SentenceTransformer(model_path)
 
-def generate_response(question):
-    input_text = f"question: {question} </s>"
-    input_ids = tokenizer.encode(input_text, return_tensors='pt')
-    
-    outputs = model.generate(input_ids)
-    answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    
-    return answer
+df = pd.read_csv("E:/BRACU-GPT/chatbot_model/university_queries_demo_data_csv.csv")
 
+answer_sentences = df['Answer'].tolist()
+answer_embeddings = model.encode(answer_sentences, convert_to_tensor=True)
 
-question = "What is the capital of France?"
-answer = generate_response(question)
-print(f"Question: {question}")
-print(f"Answer: {answer}")
+def get_response(query):
+    query_embedding = model.encode(query, convert_to_tensor=True)
+    scores = util.pytorch_cos_sim(query_embedding, answer_embeddings)
+    most_similar_idx = scores.argmax()
+    return answer_sentences[most_similar_idx]

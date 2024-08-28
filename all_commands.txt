@@ -1,8 +1,14 @@
+<<<<<<<<<<<<<<<<< Python environment commands >>>>>>>>>>>>>>>>>>>>d
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+python_env\Scripts\activate
+
+deactivate
+
 <<<<<<<<<<<<<<<<< Django commands >>>>>>>>>>>>>>>>>>>>
 
 django-admin startproject {project_name}
-
-deactivate
 
 django-admin startapp {app_name}
 
