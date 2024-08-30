@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Container = styled(Box)({
   display: 'flex',
-  height: '97vh',
+  height: '100vh',
   backgroundColor: '#293089',
   color: '#fff',
   position: 'relative',

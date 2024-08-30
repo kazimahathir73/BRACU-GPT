@@ -52,7 +52,7 @@ function Chats() {
   };
 
   return (
-    <Box sx={{ height: '97vh', display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Box 
         sx={{ 
           display: 'flex', 
@@ -189,7 +189,7 @@ function Chats() {
         component="form" onSubmit={handleSend}
         sx={{ 
           display: 'flex', 
-          padding: 2, 
+          padding: 4, 
           maxWidth: 2000,
           justifyContent: 'center',
           }}>
