@@ -12,17 +12,13 @@ django-admin startproject {project_name}
 
 django-admin startapp {app_name}
 
-django-admin startapp api
-
 python manage.py runserver
+
+python manage.py makemigrations
 
 python manage.py migrate
 
 <<<<<<<<<<<<<<<<< React commands >>>>>>>>>>>>>>>>>>>>
-
-npm install webpack wepack-cli --save-dev
-
-npm install @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties --save-dev
 
 npm install react react-dom react-router-dom
 
