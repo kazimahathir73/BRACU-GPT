@@ -2,6 +2,8 @@
 
 BRACU Helper is a chatbot designed to assist BRAC University students by providing answers to common queries related to university life. The chatbot is built using Django for the backend and React for the frontend, leveraging a Sentence Transformer model trained on a custom dataset of question-answer pairs.
 
+Video demo - https://youtu.be/ptQbcOdPAa4
+
 ## Features
 
 - **Chat Interface**: A user-friendly chat interface where users can ask questions and receive answers.
