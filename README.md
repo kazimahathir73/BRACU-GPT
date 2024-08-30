@@ -41,11 +41,11 @@ BRACU-Helper/
 ├── frontend/                # React app for frontend
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── App.js
-│   │   │   ├── Login.js
-│   │   │   ├── Signup.js
-│   │   │   ├── Chats.js
+│   │   │   ├── login.js
+│   │   │   ├── signup.js
+│   │   │   ├── chats.js
 │   │   │   └── ...
+|   |   ├── App.js
 │   │   ├── App.css
 │   │   ├── index.js
 │   │   └── ...
