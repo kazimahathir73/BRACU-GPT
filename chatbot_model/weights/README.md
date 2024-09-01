@@ -9,43 +9,50 @@ tags:
 - sentence-similarity
 - feature-extraction
 - generated_from_trainer
-- dataset_size:49
+- dataset_size:163
 - loss:CosineSimilarityLoss
 widget:
-- source_sentence: What health services are available on campus?
+- source_sentence: How can I get involved in volunteer work?
   sentences:
-  - You can access the student portal using your university login credentials.
-  - We provide health services including medical consultations, immunizations, and
-    mental health counseling.
-  - The minimum GPA requirement for graduate programs is 3.0 on a 4.0 scale.
-- source_sentence: Can I defer my admission?
+  - Volunteer opportunities are available through the student services office and
+    various student organizations.
+  - Brac University’s Residential Semester (RS) at Savar campus is unique among higher
+    education experiences in Bangladesh. The RS offers a holistic curriculum based
+    on the principle of ‘experiential learning’, which cultivates a broad range of
+    soft skills and qualities, to complement the theoretical development that students
+    undergo. The Residential Semester takes place at a specially designed campus in
+    Savar, which provides a support system that aids students in becoming confident
+    and self-reliant. https://www.bracu.ac.bd/academics/residential-campus
+  - You can check your application status by logging into the university's online
+    portal.
+- source_sentence: Talk to you soon.
   sentences:
-  - Yes, you can request to defer your admission by submitting a deferral request
-    form to the admissions office.
-  - We offer a variety of resources for students with disabilities, including academic
-    accommodations and accessible facilities.
-  - The deadline to apply for on-campus housing is June 15th for the fall semester.
-- source_sentence: Is there an alumni association?
+  - Yes, scholarships are available based on academic merit, financial need, and other
+    criteria.
+  - Looking forward to it!
+  - I'm from the digital world, created to assist you!
+- source_sentence: How can I join a student organization?
   sentences:
-  - Yes, we have an active alumni association that organizes events and networking
-    opportunities for graduates.
-  - You can report a lost or stolen student ID to the campus security office and request
-    a replacement.
-  - To appeal a grade, you need to submit a grade appeal form to your instructor or
-    department chair.
-- source_sentence: Is there a gym or fitness center on campus?
+  - You can join a student organization by attending their meetings or signing up
+    during the club fair.
+  - You’re welcome! I’m here whenever you need me.
+  - Disability services are available to students with documented disabilities. Contact
+    the disability services office for assistance.
+- source_sentence: How can I access emergency services on campus?
   sentences:
-  - The admission requirements include a high school diploma or equivalent, standardized
-    test scores (SAT, ACT), and a completed application form.
-  - Yes, we offer a shuttle service that runs between the main campus and student
-    housing.
-  - Yes, we have a gym and fitness center available to all students.
-- source_sentence: What are the requirements for transferring credits?
+  - Career counseling is available through the career services office. Appointments
+    can be made online or in person.
+  - Hello! How can I assist you today?
+  - Emergency services can be accessed by dialing campus security or using the emergency
+    call stations located around campus.
+- source_sentence: How can I get involved in research?
   sentences:
-  - You can register for classes online through the student portal.
-  - Yes, we offer various part-time job opportunities for students on campus.
-  - To transfer credits, you need to submit your transcripts for evaluation. Only
-    courses with a grade of C or higher will be considered.
+  - The student handbook is available on the university's website under the 'Student
+    Life' section.
+  - You can get involved in research by contacting faculty members in your department
+    or applying for research assistant positions.
+  - The admission process involves submitting an online application, providing required
+    documents, and attending an interview if necessary.
 ---
 
 # SentenceTransformer based on sentence-transformers/bert-base-nli-mean-tokens
@@ -97,9 +104,9 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("sentence_transformers_model_id")
 # Run inference
 sentences = [
-    'What are the requirements for transferring credits?',
-    'To transfer credits, you need to submit your transcripts for evaluation. Only courses with a grade of C or higher will be considered.',
-    'Yes, we offer various part-time job opportunities for students on campus.',
+    'How can I get involved in research?',
+    'You can get involved in research by contacting faculty members in your department or applying for research assistant positions.',
+    'The admission process involves submitting an online application, providing required documents, and attending an interview if necessary.',
 ]
 embeddings = model.encode(sentences)
 print(embeddings.shape)
@@ -154,19 +161,19 @@ You can finetune this model on your own dataset.
 #### Unnamed Dataset
 
 
-* Size: 49 training samples
+* Size: 163 training samples
 * Columns: <code>sentence_0</code>, <code>sentence_1</code>, and <code>label</code>
 * Approximate statistics based on the first 1000 samples:
-  |         | sentence_0                                                                        | sentence_1                                                                         | label                                                         |
-  |:--------|:----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:--------------------------------------------------------------|
-  | type    | string                                                                            | string                                                                             | float                                                         |
-  | details | <ul><li>min: 8 tokens</li><li>mean: 10.78 tokens</li><li>max: 15 tokens</li></ul> | <ul><li>min: 12 tokens</li><li>mean: 20.45 tokens</li><li>max: 32 tokens</li></ul> | <ul><li>min: 1.0</li><li>mean: 1.0</li><li>max: 1.0</li></ul> |
+  |         | sentence_0                                                                       | sentence_1                                                                         | label                                                         |
+  |:--------|:---------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:--------------------------------------------------------------|
+  | type    | string                                                                           | string                                                                             | float                                                         |
+  | details | <ul><li>min: 3 tokens</li><li>mean: 8.58 tokens</li><li>max: 17 tokens</li></ul> | <ul><li>min: 7 tokens</li><li>mean: 27.28 tokens</li><li>max: 118 tokens</li></ul> | <ul><li>min: 1.0</li><li>mean: 1.0</li><li>max: 1.0</li></ul> |
 * Samples:
-  | sentence_0                                                | sentence_1                                                                                                                  | label            |
-  |:----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:-----------------|
-  | <code>What are the meal plan options for students?</code> | <code>We offer several meal plan options, including unlimited, 15 meals per week, and 10 meals per week plans.</code>       | <code>1.0</code> |
-  | <code>Can I defer my admission?</code>                    | <code>Yes, you can request to defer your admission by submitting a deferral request form to the admissions office.</code>   | <code>1.0</code> |
-  | <code>How do I change my major?</code>                    | <code>To change your major, you need to fill out a change of major form and get approval from your academic advisor.</code> | <code>1.0</code> |
+  | sentence_0                                                          | sentence_1                                                                                                                  | label            |
+  |:--------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:-----------------|
+  | <code>See you later!</code>                                         | <code>See you! Take care!</code>                                                                                            | <code>1.0</code> |
+  | <code>How can I access the university's counseling services?</code> | <code>Counseling services are available on campus. Appointments can be made through the counseling center's website.</code> | <code>1.0</code> |
+  | <code>How can I schedule a campus tour?</code>                      | <code>You can schedule a campus tour by contacting the admissions office via email or phone.</code>                         | <code>1.0</code> |
 * Loss: [<code>CosineSimilarityLoss</code>](https://sbert.net/docs/package_reference/sentence_transformer/losses.html#cosinesimilarityloss) with these parameters:
   ```json
   {
@@ -179,7 +186,7 @@ You can finetune this model on your own dataset.
 
 - `per_device_train_batch_size`: 16
 - `per_device_eval_batch_size`: 16
-- `num_train_epochs`: 20
+- `num_train_epochs`: 25
 - `multi_dataset_batch_sampler`: round_robin
 
 #### All Hyperparameters
@@ -202,7 +209,7 @@ You can finetune this model on your own dataset.
 - `adam_beta2`: 0.999
 - `adam_epsilon`: 1e-08
 - `max_grad_norm`: 1
-- `num_train_epochs`: 20
+- `num_train_epochs`: 25
 - `max_steps`: -1
 - `lr_scheduler_type`: linear
 - `lr_scheduler_kwargs`: {}
